@@ -1,4 +1,46 @@
-export const landingProjects = [
+export type ProjectStatus = "live" | "scanning";
+
+export interface ProjectLink {
+  label: string;
+  url: string;
+}
+
+export interface PortfolioProject {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  tech: string[];
+  status: ProjectStatus;
+  url?: string;
+  links?: ProjectLink[];
+  features?: string[];
+  icon?: string;
+}
+
+export interface PythonSystem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: string;
+  metrics: Array<{ label: string; value: string }>;
+  tech: string[];
+  features: string[];
+}
+
+export interface AutomationTool {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tech: string[];
+  metrics: Record<string, string>;
+  features: string[];
+}
+
+export const landingProjects: PortfolioProject[] = [
   {
     id: "monrei-sai-gon",
     title: "Monrei Sai Gon",
@@ -45,7 +87,7 @@ export const landingProjects = [
   },
 ];
 
-export const wordpressProjects = [
+export const wordpressProjects: PortfolioProject[] = [
   {
     id: "hoan-my",
     title: "Hoan My",
@@ -81,7 +123,7 @@ export const wordpressProjects = [
   },
 ];
 
-export const reactProjects = [
+export const reactProjects: PortfolioProject[] = [
   {
     id: "onlyspeak",
     title: "OnlySpeak",
@@ -126,7 +168,7 @@ export const reactProjects = [
   },
 ];
 
-export const pythonSystems = [
+export const pythonSystems: PythonSystem[] = [
   {
     id: "ai-chatbot",
     title: "AI Chatbot Platform",
@@ -210,7 +252,7 @@ export const pythonSystems = [
   },
 ];
 
-export const platformAutomation = [
+export const platformAutomation: AutomationTool[] = [
   {
     id: "social-interactions",
     title: "Social Interaction Automation",
@@ -243,7 +285,7 @@ export const platformAutomation = [
   },
 ];
 
-export const webScraping = [
+export const webScraping: AutomationTool[] = [
   {
     id: "website-data-scraper",
     title: "Website Data Scraper",

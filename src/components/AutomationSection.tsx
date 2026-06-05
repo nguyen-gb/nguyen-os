@@ -4,9 +4,37 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import SectionWrapper from "./SectionWrapper";
 import { platformAutomation, webScraping } from "@/data/projects";
+import type { AutomationTool } from "@/data/projects";
+
+type ActiveTab = "platform" | "scraping";
+
+interface Profile {
+  platform: string;
+  name: string;
+  status: string;
+  proxy: string;
+}
+
+interface Spider {
+  node: string;
+  target: string;
+  status: string;
+  speed: string;
+  proxy: string;
+}
+
+interface LogLine {
+  text: string;
+  type: "system" | "log";
+  ts?: string;
+}
+
+type ActiveItem =
+  | { type: "profile"; data: Profile }
+  | { type: "spider"; data: Spider };
 
 /* ── MOCK OPERATIONAL STATES FOR TELEMETRY ── */
-const initialProfiles = [
+const initialProfiles: Profile[] = [
   { platform: "IN", name: "insta.profile_01", status: "IDLE", proxy: "VN_4G_Viettel" },
   { platform: "IN", name: "insta.profile_02", status: "LIKING", proxy: "VN_4G_Viettel" },
   { platform: "IN", name: "insta.profile_03", status: "COMMENTING", proxy: "VN_4G_Vinaphone" },
@@ -33,7 +61,7 @@ const initialProfiles = [
   { platform: "TH", name: "threads.profile_05", status: "REPLYING", proxy: "VN_Home_IP" },
 ];
 
-const initialSpiders = [
+const initialSpiders: Spider[] = [
   { node: "Node-01", target: "shopee.vn", status: "GET 200", speed: "48 r/s", proxy: "103.45.12.8" },
   { node: "Node-02", target: "shopee.vn", status: "SAVING", speed: "45 r/s", proxy: "185.122.90.4" },
   { node: "Node-03", target: "lazada.vn", status: "GET 200", speed: "32 r/s", proxy: "14.120.45.62" },
@@ -102,9 +130,9 @@ const scrapingLogs = [
 ];
 
 /* ── Interactive Scrolling Terminal ── */
-function TelemetryTerminal({ activeTab }) {
-  const [lines, setLines] = useState([]);
-  const logRef = useRef(null);
+function TelemetryTerminal({ activeTab }: { activeTab: ActiveTab }) {
+  const [lines, setLines] = useState<LogLine[]>([]);
+  const logRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const activeList = activeTab === "platform" ? platformLogs : scrapingLogs;
@@ -125,7 +153,7 @@ function TelemetryTerminal({ activeTab }) {
           ...prev,
           {
             text: activeList[index % activeList.length],
-            type: "log",
+            type: "log" as const,
             ts: new Date().toLocaleTimeString("en-US", { hour12: false }),
           },
         ];
@@ -202,10 +230,10 @@ function TelemetryTerminal({ activeTab }) {
 }
 
 /* ── Live Telemetry Grid ── */
-function TelemetryGrid({ activeTab }) {
+function TelemetryGrid({ activeTab }: { activeTab: ActiveTab }) {
   const [profiles, setProfiles] = useState(initialProfiles);
   const [spiders, setSpiders] = useState(initialSpiders);
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState<ActiveItem | null>(null);
 
   // Periodically simulate live changes in worker states
   useEffect(() => {
@@ -347,7 +375,15 @@ function TelemetryGrid({ activeTab }) {
 }
 
 /* ── Custom Automation Tool Card ── */
-function ToolCard({ tool, index, activeTab }) {
+function ToolCard({
+  tool,
+  index,
+  activeTab,
+}: {
+  tool: AutomationTool;
+  index: number;
+  activeTab: ActiveTab;
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const metrics = Object.entries(tool.metrics);
 
@@ -474,7 +510,7 @@ function ToolCard({ tool, index, activeTab }) {
 }
 
 export default function AutomationSection() {
-  const [activeTab, setActiveTab] = useState("platform"); // "platform" or "scraping"
+  const [activeTab, setActiveTab] = useState<ActiveTab>("platform");
 
   return (
     <SectionWrapper

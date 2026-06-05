@@ -53,7 +53,7 @@ export default function Navbar() {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollTo = (id) => {
+  const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileOpen(false);
   };

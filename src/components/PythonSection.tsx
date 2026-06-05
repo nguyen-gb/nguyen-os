@@ -1,12 +1,13 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import SectionWrapper from "./SectionWrapper";
 import { pythonSystems } from "@/data/projects";
+import type { PythonSystem } from "@/data/projects";
 
 /* ── Animated Metric Counter ── */
-function MetricValue({ value, inView }) {
+function MetricValue({ value, inView }: { value: string; inView: boolean }) {
   return (
     <motion.span
       initial={{ opacity: 0 }}
@@ -20,8 +21,8 @@ function MetricValue({ value, inView }) {
 }
 
 /* ── System Architecture Card ── */
-function SystemCard({ system, index }) {
-  const ref = useRef(null);
+function SystemCard({ system, index }: { system: PythonSystem; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [isHovered, setIsHovered] = useState(false);
 

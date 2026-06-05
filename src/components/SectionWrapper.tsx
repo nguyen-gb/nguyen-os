@@ -1,7 +1,16 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
+
+interface SectionWrapperProps {
+  id: string;
+  moduleIndex: number;
+  moduleLabel: string;
+  title: string;
+  subtitle?: string;
+  children: ReactNode;
+}
 
 export default function SectionWrapper({
   id,
@@ -10,8 +19,8 @@ export default function SectionWrapper({
   title,
   subtitle,
   children,
-}) {
-  const ref = useRef(null);
+}: SectionWrapperProps) {
+  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (

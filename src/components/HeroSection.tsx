@@ -4,14 +4,37 @@ import { motion } from "framer-motion";
 import { useEffect, useState, useRef, useCallback } from "react";
 import { personalInfo } from "@/data/projects";
 
+interface OrbitRingProps {
+  size: string;
+  duration: number;
+  color: string;
+  delay?: number;
+}
+
+interface StatBlockProps {
+  label: string;
+  value: string;
+  icon: string;
+  delay: number;
+}
+
+interface ParticlePosition {
+  left: number;
+  top: number;
+  duration: number;
+  delay: number;
+  size: number;
+}
+
 /* ── Matrix Rain Background ── */
 function MatrixRain() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -79,7 +102,7 @@ const bootLines = [
 ];
 
 /* ── Orbiting Ring (pure CSS animated) ── */
-function OrbitRing({ size, duration, color, delay = 0 }) {
+function OrbitRing({ size, duration, color, delay = 0 }: OrbitRingProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
@@ -97,7 +120,7 @@ function OrbitRing({ size, duration, color, delay = 0 }) {
 }
 
 /* ── Stat Block ── */
-function StatBlock({ label, value, icon, delay }) {
+function StatBlock({ label, value, icon, delay }: StatBlockProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -122,18 +145,22 @@ function StatBlock({ label, value, icon, delay }) {
 export default function HeroSection() {
   const [bootComplete, setBootComplete] = useState(false);
   const [showContent, setShowContent] = useState(false);
-  const [particlePositions, setParticlePositions] = useState([]);
+  const [particlePositions, setParticlePositions] = useState<ParticlePosition[]>([]);
 
   // Generate particle positions only on mount (client-side)
   useEffect(() => {
-    const positions = Array.from({ length: 20 }, () => ({
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      duration: Math.random() * 3 + 2,
-      delay: Math.random() * 2,
-      size: Math.random() * 3 + 1,
-    }));
-    setParticlePositions(positions);
+    const timer = setTimeout(() => {
+      const positions = Array.from({ length: 20 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        duration: Math.random() * 3 + 2,
+        delay: Math.random() * 2,
+        size: Math.random() * 3 + 1,
+      }));
+      setParticlePositions(positions);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {

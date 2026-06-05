@@ -3,12 +3,19 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import type { PortfolioProject } from "@/data/projects";
 
-export default function ProjectCard({ project, index }) {
+interface ProjectCardProps {
+  project: PortfolioProject;
+  index: number;
+}
+
+export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  const hasMultipleLinks = project.links && project.links.length > 0;
+  const links = project.links ?? [];
+  const hasMultipleLinks = links.length > 0;
   const primaryUrl = project.url || (project.links && project.links[0]?.url);
 
   return (
@@ -171,7 +178,7 @@ export default function ProjectCard({ project, index }) {
           {/* Action links */}
           <div className="flex flex-wrap gap-2 mt-auto">
             {hasMultipleLinks ? (
-              project.links.map((link) => (
+              links.map((link) => (
                 <a
                   key={link.label}
                   href={link.url}

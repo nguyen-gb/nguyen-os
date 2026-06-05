@@ -1,4 +1,6 @@
 import { JetBrains_Mono, Share_Tech_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -13,7 +15,7 @@ const shareTechMono = Share_Tech_Mono({
   weight: "400",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "NGUYEN-OS | Fullstack Engineer Portfolio",
   description:
     "Fullstack Software Engineer specializing in FastAPI (Python) & React/Next.js. Explore my cyberpunk-themed portfolio showcasing landing pages, WordPress platforms, React projects, Python backend systems, and automation tools.",
@@ -28,7 +30,7 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html
       lang="en"
@@ -42,6 +44,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"

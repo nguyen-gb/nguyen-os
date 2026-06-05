@@ -1,10 +1,20 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useRef, useEffect, useCallback } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  type FormEvent,
+} from "react";
 import { personalInfo } from "@/data/projects";
 
-const COMMANDS = {
+type TerminalEntry =
+  | { type: "system" | "output" | "error"; lines: string[] }
+  | { type: "input"; text: string };
+
+const COMMANDS: Record<string, { output: string[] }> = {
   help: {
     output: [
       "╔══════════════════════════════════════════╗",
@@ -153,7 +163,7 @@ const COMMANDS = {
 };
 
 export default function Terminal() {
-  const [history, setHistory] = useState([
+  const [history, setHistory] = useState<TerminalEntry[]>([
     {
       type: "system",
       lines: [
@@ -167,8 +177,8 @@ export default function Terminal() {
     },
   ]);
   const [input, setInput] = useState("");
-  const termRef = useRef(null);
-  const inputRef = useRef(null);
+  const termRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = useCallback(() => {
     if (termRef.current) {
@@ -181,12 +191,12 @@ export default function Terminal() {
   }, [history, scrollToBottom]);
 
   const handleCommand = useCallback(
-    (e) => {
+    (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const cmd = input.trim().toLowerCase();
       if (!cmd) return;
 
-      const newHistory = [
+      const newHistory: TerminalEntry[] = [
         ...history,
         { type: "input", text: cmd },
       ];
