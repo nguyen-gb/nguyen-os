@@ -3,21 +3,22 @@
 /* ── Tailwind v4 Theme Tokens ── */
 @theme inline {
   /* Cyber Colors */
-  --color-cyber-pink: #ea3b92;
-  --color-cyber-pink-dim: #ea3b9266;
-  --color-cyber-pink-glow: #ea3b92aa;
-  --color-cyber-cyan: #00f0ff;
-  --color-cyber-cyan-dim: #00f0ff44;
-  --color-cyber-cyan-glow: #00f0ffaa;
-  --color-cyber-dark: #05050a;
-  --color-cyber-surface: #0a0a14;
-  --color-cyber-surface-2: #12121e;
-  --color-cyber-border: #1a1a2e;
-  --color-cyber-text: #e0e0e8;
-  --color-cyber-text-dim: #6a6a7e;
-  --color-cyber-warning: #ffaa00;
-  --color-cyber-success: #00ff88;
-  --color-cyber-error: #ff3344;
+  --color-cyber-pink: var(--cyber-pink);
+  --color-cyber-pink-dim: var(--cyber-pink-dim);
+  --color-cyber-pink-glow: var(--cyber-pink-glow);
+  --color-cyber-cyan: var(--cyber-cyan);
+  --color-cyber-cyan-dim: var(--cyber-cyan-dim);
+  --color-cyber-cyan-glow: var(--cyber-cyan-glow);
+  --color-cyber-dark: var(--cyber-dark);
+  --color-cyber-surface: var(--cyber-surface);
+  --color-cyber-surface-2: var(--cyber-surface-2);
+  --color-cyber-border: var(--cyber-border);
+  --color-cyber-text: var(--cyber-text);
+  --color-cyber-text-dim: var(--cyber-text-dim);
+  --color-cyber-heading: var(--cyber-heading);
+  --color-cyber-warning: var(--cyber-warning);
+  --color-cyber-success: var(--cyber-success);
+  --color-cyber-error: var(--cyber-error);
 
   /* Fonts */
   --font-mono: "JetBrains Mono", "Fira Code", "Share Tech Mono", monospace;
@@ -91,9 +92,53 @@
 
 
 /* ── Base Reset ── */
+:root {
+  color-scheme: dark;
+  --cyber-pink: #ea3b92;
+  --cyber-pink-dim: #ea3b9266;
+  --cyber-pink-glow: #ea3b92aa;
+  --cyber-cyan: #00f0ff;
+  --cyber-cyan-dim: #00f0ff44;
+  --cyber-cyan-glow: #00f0ffaa;
+  --cyber-dark: #05050a;
+  --cyber-surface: #0a0a14;
+  --cyber-surface-2: #12121e;
+  --cyber-border: #1a1a2e;
+  --cyber-text: #e0e0e8;
+  --cyber-text-dim: #88889d;
+  --cyber-heading: #ffffff;
+  --cyber-warning: #ffaa00;
+  --cyber-success: #00ff88;
+  --cyber-error: #ff3344;
+  --cyber-grid: rgba(234, 59, 146, 0.03);
+  --cyber-scanline: rgba(234, 59, 146, 0.015);
+}
+
+html.light {
+  color-scheme: light;
+  --cyber-pink: #c2186a;
+  --cyber-pink-dim: #c2186a66;
+  --cyber-pink-glow: #c2186a88;
+  --cyber-cyan: #007f8a;
+  --cyber-cyan-dim: #007f8a44;
+  --cyber-cyan-glow: #007f8a77;
+  --cyber-dark: #f6f7fb;
+  --cyber-surface: #ffffff;
+  --cyber-surface-2: #eceef5;
+  --cyber-border: #cfd3e1;
+  --cyber-text: #202233;
+  --cyber-text-dim: #62677a;
+  --cyber-heading: #0d1020;
+  --cyber-warning: #a96700;
+  --cyber-success: #087f4f;
+  --cyber-error: #c72535;
+  --cyber-grid: rgba(194, 24, 106, 0.07);
+  --cyber-scanline: rgba(194, 24, 106, 0.025);
+}
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ea3b9244 #05050a;
+  scrollbar-color: var(--cyber-pink-dim) var(--cyber-dark);
 }
 
 *::-webkit-scrollbar {
@@ -101,33 +146,35 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: #05050a;
+  background: var(--cyber-dark);
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #ea3b9244;
+  background: var(--cyber-pink-dim);
   border-radius: 3px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #ea3b92;
+  background: var(--cyber-pink);
 }
 
 ::selection {
-  background: #ea3b9244;
-  color: #ea3b92;
+  background: var(--cyber-pink-dim);
+  color: var(--cyber-pink);
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--cyber-dark);
 }
 
 body {
-  background: #05050a;
-  color: #e0e0e8;
+  background: var(--cyber-dark);
+  color: var(--cyber-text);
   font-family: "JetBrains Mono", "Fira Code", monospace;
   overflow-x: hidden;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ── Scanline Overlay ── */
@@ -142,8 +189,8 @@ body::before {
     0deg,
     transparent,
     transparent 2px,
-    rgba(234, 59, 146, 0.015) 2px,
-    rgba(234, 59, 146, 0.015) 4px
+    var(--cyber-scanline) 2px,
+    var(--cyber-scanline) 4px
   );
   pointer-events: none;
   z-index: 9999;
@@ -231,8 +278,12 @@ body::before {
 /* ── Card Hover Lift ── */
 .cyber-card {
   transition: all 0.3s ease;
-  border: 1px solid #1a1a2e;
-  background: linear-gradient(135deg, #0a0a14 0%, #12121e 100%);
+  border: 1px solid var(--cyber-border);
+  background: linear-gradient(
+    135deg,
+    var(--cyber-surface) 0%,
+    var(--cyber-surface-2) 100%
+  );
 }
 .cyber-card:hover {
   border-color: #ea3b9266;
@@ -271,8 +322,8 @@ body::before {
 /* ── Grid Pattern Background ── */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(234, 59, 146, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(234, 59, 146, 0.03) 1px, transparent 1px);
+    linear-gradient(var(--cyber-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cyber-grid) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -305,4 +356,12 @@ body::before {
   pointer-events: none;
   z-index: 9998;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+html.light .noise-overlay {
+  opacity: 0.012;
+}
+
+html.light #hero canvas {
+  opacity: 0.18;
 }

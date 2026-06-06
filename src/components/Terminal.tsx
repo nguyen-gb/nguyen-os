@@ -249,7 +249,7 @@ export default function Terminal() {
             </span>
             <div className="flex-1 h-px bg-gradient-to-r from-cyber-pink/30 to-transparent" />
           </div>
-          <h2 className="text-2xl md:text-4xl font-['Orbitron'] font-bold text-white tracking-wider">
+          <h2 className="text-2xl md:text-4xl font-['Orbitron'] font-bold text-cyber-heading tracking-wider">
             TERMINAL
           </h2>
           <p className="mt-2 text-sm text-cyber-text-dim font-mono">
@@ -303,7 +303,7 @@ export default function Terminal() {
                       <span className="text-cyber-pink font-bold">
                         nguyen@os:~$
                       </span>
-                      <span className="text-white">{entry.text}</span>
+                      <span className="text-cyber-heading">{entry.text}</span>
                     </div>
                   )}
                   {entry.type === "output" &&
@@ -350,7 +350,7 @@ export default function Terminal() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="flex-1 bg-transparent outline-none text-white caret-cyber-pink text-xs font-mono"
+                className="flex-1 bg-transparent outline-none text-cyber-heading caret-cyber-pink text-xs font-mono"
                 spellCheck={false}
                 autoComplete="off"
                 placeholder="Type a command..."

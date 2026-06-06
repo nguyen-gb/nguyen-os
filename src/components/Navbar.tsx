@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { personalInfo } from "@/data/projects";
 
+type Theme = "light" | "dark";
+
 const navLinks = [
   { id: "landing", label: "LANDING", module: "01" },
   { id: "wordpress", label: "WORDPRESS", module: "02" },
@@ -18,6 +20,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [currentTime, setCurrentTime] = useState("");
+  const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,9 +56,33 @@ export default function Navbar() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTheme(
+        document.documentElement.classList.contains("light")
+          ? "light"
+          : "dark"
+      );
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMobileOpen(false);
+  };
+
+  const toggleTheme = () => {
+    const currentTheme =
+      theme ??
+      (document.documentElement.classList.contains("light") ? "light" : "dark");
+    const nextTheme: Theme = currentTheme === "dark" ? "light" : "dark";
+
+    document.documentElement.classList.toggle("light", nextTheme === "light");
+    document.documentElement.style.colorScheme = nextTheme;
+    localStorage.setItem("nguyen-os-theme", nextTheme);
+    setTheme(nextTheme);
   };
 
   return (
@@ -87,7 +114,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="hidden sm:block">
-                <div className="text-[0.7rem] font-['Orbitron'] font-bold text-white tracking-[0.2em] leading-none">
+                <div className="text-[0.7rem] font-['Orbitron'] font-bold text-cyber-heading tracking-[0.2em] leading-none">
                   {personalInfo.systemVersion}
                 </div>
                 <div className="text-[0.5rem] text-cyber-pink/60 tracking-[0.3em] mt-0.5">
@@ -105,7 +132,7 @@ export default function Navbar() {
                   className={`relative px-3 py-1.5 text-[0.6rem] tracking-[0.15em] font-mono uppercase transition-all duration-300 cursor-pointer ${
                     activeSection === link.id
                       ? "text-cyber-pink"
-                      : "text-cyber-text-dim hover:text-white"
+                      : "text-cyber-text-dim hover:text-cyber-heading"
                   }`}
                 >
                   <span className="text-cyber-pink/40 mr-1">
@@ -129,6 +156,63 @@ export default function Navbar() {
                 <span className="w-1.5 h-1.5 bg-cyber-success rounded-full animate-pulse" />
                 <span className="tracking-[0.1em]">{currentTime}</span>
               </div>
+
+              <motion.button
+                type="button"
+                onClick={toggleTheme}
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.92 }}
+                className="grid h-8 w-8 place-items-center border border-cyber-border bg-cyber-surface/70 text-cyber-pink transition-colors hover:border-cyber-pink/60 hover:bg-cyber-pink/10 cursor-pointer"
+                aria-label={
+                  theme === "light"
+                    ? "Switch to dark mode"
+                    : "Switch to light mode"
+                }
+                title={
+                  theme === "light"
+                    ? "Switch to dark mode"
+                    : "Switch to light mode"
+                }
+              >
+                {theme === "light" ? (
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                    />
+                    <path
+                      d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                )}
+              </motion.button>
 
               {/* Mobile menu button */}
               <button
@@ -183,7 +267,7 @@ export default function Navbar() {
                   <span className="text-[0.6rem] text-cyber-pink/50 font-mono tracking-[0.2em]">
                     {link.module}
                   </span>
-                  <span className="text-sm text-white tracking-[0.15em] font-['Orbitron']">
+                  <span className="text-sm text-cyber-heading tracking-[0.15em] font-['Orbitron']">
                     {link.label}
                   </span>
                 </motion.button>

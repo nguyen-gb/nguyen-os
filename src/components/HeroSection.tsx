@@ -300,7 +300,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-['Orbitron'] font-black text-white tracking-[0.1em] mb-4"
+              className="text-5xl md:text-7xl lg:text-8xl font-['Orbitron'] font-black text-cyber-heading tracking-[0.1em] mb-4"
             >
               <span className="text-glow-pink">{personalInfo.name}</span>
               <span className="text-cyber-pink">.</span>
@@ -370,7 +370,7 @@ export default function HeroSection() {
                     "0 0 20px rgba(234,59,146,0.4), 0 0 40px rgba(234,59,146,0.2)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-3 bg-cyber-pink text-white font-['Orbitron'] text-xs tracking-[0.2em] uppercase cursor-pointer overflow-hidden"
+                className="group relative px-8 py-3 bg-cyber-pink text-cyber-heading font-['Orbitron'] text-xs tracking-[0.2em] uppercase cursor-pointer overflow-hidden"
               >
                 <span className="relative z-10">EXPLORE SYSTEMS</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyber-pink to-[#c2297a] opacity-0 group-hover:opacity-100 transition-opacity" />

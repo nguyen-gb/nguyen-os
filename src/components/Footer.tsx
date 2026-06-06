@@ -21,7 +21,7 @@ export default function Footer() {
                   <div className="w-1 h-1 bg-cyber-pink rounded-full" />
                 </div>
               </div>
-              <span className="text-xs font-['Orbitron'] font-bold text-white tracking-[0.15em]">
+              <span className="text-xs font-['Orbitron'] font-bold text-cyber-heading tracking-[0.15em]">
                 {personalInfo.systemVersion}
               </span>
             </div>

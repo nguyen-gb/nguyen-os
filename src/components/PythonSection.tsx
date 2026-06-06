@@ -137,7 +137,7 @@ function SystemCard({ system, index }: { system: PythonSystem; index: number }) 
 
         {/* Content */}
         <div className="p-5">
-          <h3 className="text-base font-bold text-white group-hover:text-cyber-pink transition-colors font-['Orbitron'] tracking-wide mb-1">
+          <h3 className="text-base font-bold text-cyber-heading group-hover:text-cyber-pink transition-colors font-['Orbitron'] tracking-wide mb-1">
             {system.title}
           </h3>
           <p className="text-[0.65rem] text-cyber-cyan tracking-[0.15em] uppercase mb-3">

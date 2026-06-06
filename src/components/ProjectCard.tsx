@@ -44,7 +44,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               border: "1px solid",
               borderColor: isHovered
                 ? "rgba(234,59,146,0.6)"
-                : "rgba(26,26,46,1)",
+                : "var(--cyber-border)",
             }}
           />
 
@@ -134,7 +134,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           {/* Title row */}
           <div className="flex items-start justify-between gap-2 mb-2">
             <div>
-              <h3 className="text-base font-bold text-white group-hover:text-cyber-pink transition-colors font-['Orbitron'] tracking-wide">
+              <h3 className="text-base font-bold text-cyber-heading group-hover:text-cyber-pink transition-colors font-['Orbitron'] tracking-wide">
                 {project.title}
               </h3>
               <p className="text-[0.65rem] text-cyber-cyan tracking-[0.15em] uppercase mt-0.5">
@@ -184,7 +184,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-white border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300 rounded-sm"
+                  className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-cyber-heading border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300 rounded-sm"
                 >
                   <span className="w-1.5 h-1.5 bg-cyber-pink rounded-full" />
                   {link.label}
@@ -195,7 +195,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={primaryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-white border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300 rounded-sm"
+                className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-cyber-heading border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300 rounded-sm"
               >
                 <span className="w-1.5 h-1.5 bg-cyber-pink rounded-full" />
                 VIEW LIVE

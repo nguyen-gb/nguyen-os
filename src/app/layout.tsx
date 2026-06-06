@@ -1,6 +1,7 @@
 import { JetBrains_Mono, Share_Tech_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -14,6 +15,21 @@ const shareTechMono = Share_Tech_Mono({
   subsets: ["latin"],
   weight: "400",
 });
+
+const themeInitScript = `
+  (() => {
+    try {
+      const savedTheme = localStorage.getItem("nguyen-os-theme");
+      const theme = savedTheme === "light" || savedTheme === "dark"
+        ? savedTheme
+        : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.classList.toggle("light", theme === "light");
+      document.documentElement.style.colorScheme = theme;
+    } catch {
+      document.documentElement.style.colorScheme = "dark";
+    }
+  })();
+`;
 
 export const metadata: Metadata = {
   title: "NGUYEN-OS | Fullstack Engineer Portfolio",
@@ -34,9 +50,15 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${jetbrainsMono.variable} ${shareTechMono.variable} h-full antialiased`}
     >
       <head>
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
         {/* Orbitron loaded via link tag since next/font/google may not support all display fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

@@ -53,7 +53,7 @@ export default function SectionWrapper({
           </div>
 
           {/* Section title */}
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-['Orbitron'] font-bold text-white tracking-wider">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-['Orbitron'] font-bold text-cyber-heading tracking-wider">
             {title.split("").map((char, i) => (
               <motion.span
                 key={i}

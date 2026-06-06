@@ -195,7 +195,7 @@ function TelemetryTerminal({ activeTab }: { activeTab: ActiveTab }) {
       </div>
 
       {/* Log content */}
-      <div ref={logRef} className="p-3 flex-1 overflow-y-auto font-mono text-[0.6rem] leading-relaxed bg-[#020205]">
+      <div ref={logRef} className="p-3 flex-1 overflow-y-auto font-mono text-[0.6rem] leading-relaxed bg-cyber-dark">
         {lines.map((line, i) => {
           let lineClass = "text-cyber-cyan/70";
           if (line.type === "system") {
@@ -327,7 +327,7 @@ function TelemetryGrid({ activeTab }: { activeTab: ActiveTab }) {
       </div>
 
       {/* Dynamic Details HUD Panel */}
-      <div className="h-10 border border-cyber-border bg-[#030308] rounded p-2 flex items-center font-mono">
+      <div className="h-10 border border-cyber-border bg-cyber-dark rounded p-2 flex items-center font-mono">
         {activeItem ? (
           <motion.div
             initial={{ opacity: 0, y: 3 }}
@@ -404,7 +404,7 @@ function ToolCard({
         <div>
           <div className="flex items-start justify-between mb-2">
             <div>
-              <h3 className={`text-sm font-bold text-white transition-colors font-['Orbitron'] tracking-wide ${
+              <h3 className={`text-sm font-bold text-cyber-heading transition-colors font-['Orbitron'] tracking-wide ${
                 activeTab === "platform" ? "group-hover:text-cyber-pink" : "group-hover:text-cyber-cyan"
               }`}>
                 {tool.title}
@@ -451,7 +451,7 @@ function ToolCard({
         <div className="border-t border-cyber-border/40 pt-3">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center justify-between w-full text-[0.55rem] font-mono tracking-wider text-cyber-text-dim hover:text-white uppercase transition-colors select-none"
+            className="flex items-center justify-between w-full text-[0.55rem] font-mono tracking-wider text-cyber-text-dim hover:text-cyber-heading uppercase transition-colors select-none"
           >
             <span>ENGINE MODULE FEATURES</span>
             <motion.span
@@ -527,8 +527,8 @@ export default function AutomationSection() {
           onClick={() => setActiveTab("platform")}
           className={`flex-1 relative py-4 px-6 rounded-lg font-['Orbitron'] font-bold text-xs tracking-wider transition-all duration-300 flex flex-col items-center justify-center border ${
             activeTab === "platform"
-              ? "bg-cyber-pink/10 border-cyber-pink text-white glow-pink"
-              : "border-transparent text-cyber-text-dim hover:text-white hover:bg-cyber-surface/60"
+              ? "bg-cyber-pink/10 border-cyber-pink text-cyber-heading glow-pink"
+              : "border-transparent text-cyber-text-dim hover:text-cyber-heading hover:bg-cyber-surface/60"
           }`}
         >
           <span className="text-[0.5rem] tracking-[0.2em] opacity-60 font-mono mb-1 uppercase">MODULE 05.A // SOCIAL INTERACTIONS</span>
@@ -543,8 +543,8 @@ export default function AutomationSection() {
           onClick={() => setActiveTab("scraping")}
           className={`flex-1 relative py-4 px-6 rounded-lg font-['Orbitron'] font-bold text-xs tracking-wider transition-all duration-300 flex flex-col items-center justify-center border ${
             activeTab === "scraping"
-              ? "bg-cyber-cyan/10 border-cyber-cyan text-white glow-cyan"
-              : "border-transparent text-cyber-text-dim hover:text-white hover:bg-cyber-surface/60"
+              ? "bg-cyber-cyan/10 border-cyber-cyan text-cyber-heading glow-cyan"
+              : "border-transparent text-cyber-text-dim hover:text-cyber-heading hover:bg-cyber-surface/60"
           }`}
         >
           <span className="text-[0.5rem] tracking-[0.2em] opacity-60 font-mono mb-1 uppercase">MODULE 05.B // WEBSITE DATA</span>
