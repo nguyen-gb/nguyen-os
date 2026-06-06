@@ -144,9 +144,25 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* Description */}
-          <p className="text-xs text-cyber-text-dim leading-relaxed mb-4 flex-1">
+          <p className="text-sm text-cyber-text-dim leading-6 mb-4">
             {project.description}
           </p>
+
+          {(project.role || project.focus) && (
+            <div className="mb-4 border-l border-cyber-cyan/40 pl-3">
+              {project.role && (
+                <p className="text-[0.65rem] uppercase tracking-[0.14em] text-cyber-cyan">
+                  Role: {project.role}
+                </p>
+              )}
+              {project.focus && (
+                <p className="mt-1 text-xs leading-5 text-cyber-text-dim">
+                  <span className="text-cyber-heading">Engineering focus:</span>{" "}
+                  {project.focus.join(" / ")}
+                </p>
+              )}
+            </div>
+          )}
 
           {/* Tech stack */}
           <div className="flex flex-wrap gap-1.5 mb-4">

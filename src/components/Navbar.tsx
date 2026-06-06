@@ -2,17 +2,17 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { personalInfo } from "@/data/projects";
 
 type Theme = "light" | "dark";
 
 const navLinks = [
-  { id: "landing", label: "LANDING", module: "01" },
-  { id: "wordpress", label: "WORDPRESS", module: "02" },
-  { id: "react", label: "REACT", module: "03" },
+  { id: "react", label: "REACT", module: "01" },
+  { id: "landing", label: "LANDING", module: "02" },
+  { id: "wordpress", label: "WORDPRESS", module: "03" },
   { id: "python", label: "PYTHON", module: "04" },
-  { id: "automation", label: "AUTOMATION", module: "05" },
-  { id: "terminal", label: "TERMINAL", module: "06" },
+  { id: "terminal", label: "TERMINAL", module: "05" },
 ];
 
 export default function Navbar() {
@@ -106,13 +106,14 @@ export default function Navbar() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="w-7 h-7 relative">
-                <div className="absolute inset-0 border border-cyber-pink/60 rotate-45 group-hover:rotate-[135deg] transition-transform duration-500" />
-                <div className="absolute inset-1 border border-cyber-pink/30 rotate-45 group-hover:rotate-[135deg] transition-transform duration-500 delay-75" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-cyber-pink rounded-full animate-pulse-glow" />
-                </div>
-              </div>
+              <Image
+                src="/images/brand/logo-mark-256.png"
+                alt="Nguyen"
+                width={54}
+                height={36}
+                priority
+                className="h-9 w-[54px] object-contain transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="hidden sm:block">
                 <div className="text-[0.7rem] font-['Orbitron'] font-bold text-cyber-heading tracking-[0.2em] leading-none">
                   {personalInfo.systemVersion}

@@ -1,5 +1,3 @@
-"use client";
-
 import SectionWrapper from "./SectionWrapper";
 import ProjectCard from "./ProjectCard";
 import { reactProjects } from "@/data/projects";
@@ -8,10 +6,10 @@ export default function ReactSection() {
   return (
     <SectionWrapper
       id="react"
-      moduleIndex={3}
-      moduleLabel="PERSONAL ARCHITECTURE SHELL"
-      title="REACT PROJECTS"
-      subtitle="Personal engineering showcases demonstrating mastery of modern component-driven architectures."
+      moduleIndex={1}
+      moduleLabel="FEATURED FRONTEND WORK"
+      title="REACT & NEXT.JS"
+      subtitle="Flagship product experiences built around responsive interfaces, real-time interaction, and maintainable component architecture."
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {reactProjects.map((project, i) => (

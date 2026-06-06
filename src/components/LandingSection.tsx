@@ -1,5 +1,3 @@
-"use client";
-
 import SectionWrapper from "./SectionWrapper";
 import ProjectCard from "./ProjectCard";
 import { landingProjects } from "@/data/projects";
@@ -8,10 +6,10 @@ export default function LandingSection() {
   return (
     <SectionWrapper
       id="landing"
-      moduleIndex={1}
-      moduleLabel="FREELANCE CORE"
+      moduleIndex={2}
+      moduleLabel="CONVERSION-FOCUSED UI"
       title="LANDING PAGES"
-      subtitle="Curated collection of high-performance landing pages designed, optimized, and deployed as a Freelance Software Engineer."
+      subtitle="Responsive marketing experiences designed for clear storytelling, fast navigation, and strong conversion paths."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {landingProjects.map((project, i) => (

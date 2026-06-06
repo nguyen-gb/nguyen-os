@@ -197,11 +197,11 @@ export default function PythonSection() {
     <SectionWrapper
       id="python"
       moduleIndex={4}
-      moduleLabel="BACKEND ENGINE & AI CORE"
-      title="PYTHON SYSTEMS"
-      subtitle="Heavy-duty concurrent backend systems and production-ready AI pipelines."
+      moduleLabel="FULL-STACK SUPPORT"
+      title="PYTHON & API"
+      subtitle="Backend and AI integration experience that supports complete frontend product delivery."
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {pythonSystems.map((system, i) => (
           <SystemCard key={system.id} system={system} index={i} />
         ))}

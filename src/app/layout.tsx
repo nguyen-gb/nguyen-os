@@ -32,17 +32,27 @@ const themeInitScript = `
 `;
 
 export const metadata: Metadata = {
-  title: "NGUYEN-OS | Fullstack Engineer Portfolio",
+  title: "NGUYEN-OS | Frontend Engineer Portfolio",
   description:
-    "Fullstack Software Engineer specializing in FastAPI (Python) & React/Next.js. Explore my cyberpunk-themed portfolio showcasing landing pages, WordPress platforms, React projects, Python backend systems, and automation tools.",
+    "Frontend-focused software engineer building responsive product experiences with React, Next.js, and TypeScript.",
   keywords:
-    "fullstack developer, software engineer, FastAPI, React, Next.js, Python, portfolio, cyberpunk",
+    "frontend developer, frontend engineer, React, Next.js, TypeScript, UI development, portfolio",
   authors: [{ name: "Nguyen" }],
   openGraph: {
-    title: "NGUYEN-OS | Fullstack Engineer Portfolio",
+    title: "NGUYEN-OS | Frontend Engineer Portfolio",
     description:
-      "Explore the systems of a Fullstack Software Engineer — cyberpunk command center portfolio.",
+      "React, Next.js, and TypeScript work presented through the NGUYEN-OS command center.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NGUYEN-OS | Frontend Engineer Portfolio",
+    description:
+      "Frontend-focused engineering work with React, Next.js, and TypeScript.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

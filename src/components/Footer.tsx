@@ -1,6 +1,5 @@
-"use client";
-
 import { personalInfo } from "@/data/projects";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -15,20 +14,21 @@ export default function Footer() {
           {/* System info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-5 h-5 relative">
-                <div className="absolute inset-0 border border-cyber-pink/60 rotate-45" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-1 h-1 bg-cyber-pink rounded-full" />
-                </div>
-              </div>
+              <Image
+                src="/images/brand/logo-mark-256.png"
+                alt="Nguyen"
+                width={48}
+                height={32}
+                className="h-8 w-12 object-contain"
+              />
               <span className="text-xs font-['Orbitron'] font-bold text-cyber-heading tracking-[0.15em]">
                 {personalInfo.systemVersion}
               </span>
             </div>
             <p className="text-[0.65rem] text-cyber-text-dim leading-relaxed font-mono">
-              Fullstack Software Engineer specializing in
+              Frontend-focused Software Engineer building with
               <br />
-              FastAPI (Python) &amp; React/Next.js.
+              React, Next.js &amp; TypeScript.
               <br />
               Building the future, one commit at a time.
             </p>
@@ -41,11 +41,10 @@ export default function Footer() {
             </h3>
             <div className="grid grid-cols-2 gap-1">
               {[
+                { id: "react", label: "React & Next.js" },
                 { id: "landing", label: "Landing Pages" },
                 { id: "wordpress", label: "WordPress" },
-                { id: "react", label: "React Projects" },
-                { id: "python", label: "Python Systems" },
-                { id: "automation", label: "Automation" },
+                { id: "python", label: "Python & API" },
                 { id: "terminal", label: "Terminal" },
               ].map((link) => (
                 <a
@@ -80,13 +79,6 @@ export default function Footer() {
               >
                 <span className="w-1.5 h-1.5 bg-cyber-cyan/60 rounded-full animate-pulse" />
                 Email: vannguyen.tran.164@gmail.com
-              </a>
-              <a
-                href="tel:0395162022"
-                className="flex items-center gap-2 text-[0.65rem] text-cyber-text-dim hover:text-cyber-cyan transition-colors font-mono"
-              >
-                <span className="w-1.5 h-1.5 bg-cyber-cyan/60 rounded-full animate-pulse" />
-                Tel/Zalo/WA/TG: 0395162022
               </a>
             </div>
           </div>

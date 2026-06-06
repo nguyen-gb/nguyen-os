@@ -16,6 +16,8 @@ export interface PortfolioProject {
   url?: string;
   links?: ProjectLink[];
   features?: string[];
+  role?: string;
+  focus?: string[];
   icon?: string;
 }
 
@@ -30,16 +32,6 @@ export interface PythonSystem {
   features: string[];
 }
 
-export interface AutomationTool {
-  id: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  tech: string[];
-  metrics: Record<string, string>;
-  features: string[];
-}
-
 export const landingProjects: PortfolioProject[] = [
   {
     id: "monrei-sai-gon",
@@ -50,6 +42,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/monrei-sai-gon.jpg",
     url: "https://monrei-sai-gon.vn/",
     tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript"],
+    role: "Frontend implementation",
+    focus: ["Responsive layout", "Visual storytelling", "Performance-minded UI"],
     status: "live",
   },
   {
@@ -61,6 +55,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/lusso-saigon.jpg",
     url: "https://lussosaigonresidences.com/",
     tech: ["HTML5", "CSS3", "JavaScript", "SEO Optimization"],
+    role: "Frontend implementation",
+    focus: ["Interactive content", "Lead-generation flow", "Responsive UI"],
     status: "live",
   },
   {
@@ -72,6 +68,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/vinhomes-saigon-park.jpg",
     url: "https://vinhomes-saigon-park-page.com/",
     tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript"],
+    role: "Frontend implementation",
+    focus: ["Content hierarchy", "Responsive sections", "Conversion-oriented UI"],
     status: "live",
   },
   {
@@ -83,6 +81,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/the-win-long-an.jpg",
     url: "https://thewinlongan.online/",
     tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "SEO"],
+    role: "Frontend implementation",
+    focus: ["Reusable sections", "Mobile experience", "Asset optimization"],
     status: "live",
   },
 ];
@@ -97,6 +97,8 @@ export const wordpressProjects: PortfolioProject[] = [
     image: "/images/projects/hoan-my.jpg",
     url: "https://hoanmy.com/",
     tech: ["WordPress", "Custom PHP", "MySQL", "REST API"],
+    role: "Web platform development",
+    focus: ["CMS integration", "Multi-location content", "Responsive frontend"],
     status: "live",
   },
   {
@@ -108,6 +110,8 @@ export const wordpressProjects: PortfolioProject[] = [
     image: "/images/projects/kodo.jpg",
     url: "https://kodo.vn/",
     tech: ["WordPress", "WooCommerce", "Custom Themes", "Linux"],
+    role: "WordPress development",
+    focus: ["Custom theme UI", "Commerce integration", "SEO foundations"],
     status: "live",
   },
   {
@@ -119,6 +123,8 @@ export const wordpressProjects: PortfolioProject[] = [
     image: "/images/projects/nhac-cu-minh-phung.jpg",
     url: "https://nhaccuminhphung.com/",
     tech: ["WordPress", "WooCommerce", "PHP", "MySQL"],
+    role: "E-commerce development",
+    focus: ["Product catalog UI", "Commerce flows", "Responsive storefront"],
     status: "live",
   },
 ];
@@ -134,6 +140,8 @@ export const reactProjects: PortfolioProject[] = [
     url: "https://onlyspeak.online/",
     links: [{ label: "Live App", url: "https://onlyspeak.online/" }],
     tech: ["Next.js", "React", "FastAPI (Python)", "Audio APIs", "WebSockets"],
+    role: "Full-stack product development",
+    focus: ["Interactive React UI", "Real-time audio flow", "API integration"],
     status: "live",
     features: [
       "AI conversation partner",
@@ -158,6 +166,8 @@ export const reactProjects: PortfolioProject[] = [
       { label: "Mobile App", url: "https://github.com/nguyen-gb/cinema" },
     ],
     tech: ["React", "Next.js", "React Native", "WebSockets", "Redux", "JWT"],
+    role: "Cross-platform frontend development",
+    focus: ["Real-time seat UI", "Shared product flows", "State management"],
     status: "scanning",
     features: [
       "Real-time seat booking",
@@ -174,12 +184,12 @@ export const pythonSystems: PythonSystem[] = [
     title: "AI Chatbot Platform",
     subtitle: "RAG Architecture Engine",
     description:
-      "Production-grade AI chatbot with Retrieval-Augmented Generation architecture handling ~500 req/s with intelligent context retrieval.",
+      "AI chatbot platform using Retrieval-Augmented Generation for contextual answers, streaming responses, and multi-tenant workflows.",
     icon: "🤖",
     metrics: [
-      { label: "Throughput", value: "~500 req/s" },
+      { label: "Response", value: "Streaming" },
       { label: "Architecture", value: "RAG" },
-      { label: "Uptime", value: "99.9%" },
+      { label: "Scope", value: "Multi-tenant" },
     ],
     tech: [
       "Python",
@@ -205,8 +215,8 @@ export const pythonSystems: PythonSystem[] = [
     icon: "📡",
     metrics: [
       { label: "Protocol", value: "SIP/WebSocket" },
-      { label: "Latency", value: "<2s" },
-      { label: "Success Rate", value: "98%" },
+      { label: "Audio", value: "TTS/STT" },
+      { label: "Processing", value: "Real-time" },
     ],
     tech: [
       "Python",
@@ -223,114 +233,17 @@ export const pythonSystems: PythonSystem[] = [
       "Analytics dashboard",
     ],
   },
-  {
-    id: "smart-loan",
-    title: "Smart Loan Advisor",
-    subtitle: "RBAC Financial Engine",
-    description:
-      "Intelligent loan advisory system with role-based access control and automated risk assessment pipelines.",
-    icon: "🏦",
-    metrics: [
-      { label: "Security", value: "RBAC" },
-      { label: "Processing", value: "Real-time" },
-      { label: "Coverage", value: "Full-stack" },
-    ],
-    tech: [
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "JWT/RBAC",
-      "Celery",
-      "Redis",
-    ],
-    features: [
-      "Role-based access control",
-      "Automated risk scoring",
-      "Document processing",
-      "Compliance engine",
-    ],
-  },
 ];
-
-export const platformAutomation: AutomationTool[] = [
-  {
-    id: "social-interactions",
-    title: "Social Interaction Automation",
-    subtitle: "Views, Likes, Comments",
-    description:
-      "Small automation scripts for common social actions such as viewing posts, liking content, preparing comments, and checking profile activity across Instagram, Facebook, X, and similar platforms.",
-    tech: ["Python", "Playwright", "Selenium", "Session Handling"],
-    metrics: { scope: "Support tool", actions: "View/Like/Comment", review: "Manual" },
-    features: [
-      "View and reaction flows",
-      "Comment draft preparation",
-      "Basic account/session handling",
-      "Manual review before sensitive actions",
-    ]
-  },
-  {
-    id: "social-monitoring",
-    title: "Social Activity Helper",
-    subtitle: "Queues & Follow-Ups",
-    description:
-      "Utility workflows for monitoring simple engagement queues, collecting recent activity, and organizing follow-up tasks without replacing manual control.",
-    tech: ["FastAPI", "Celery", "Redis", "OpenAI API"],
-    metrics: { queue: "Lightweight", status: "Tracked", usage: "Internal" },
-    features: [
-      "Mention/comment queue",
-      "Simple follow-up notes",
-      "Scheduled task list",
-      "CSV/log export",
-    ]
-  },
-];
-
-export const webScraping: AutomationTool[] = [
-  {
-    id: "website-data-scraper",
-    title: "Website Data Scraper",
-    subtitle: "Public Data Collection",
-    description:
-      "Scrapers for collecting product, listing, or article data from websites and converting it into structured JSON, CSV, or Excel outputs.",
-    tech: ["Python", "Scrapy", "BeautifulSoup4", "Requests"],
-    metrics: { output: "JSON/CSV/XLSX", mode: "Batch", checks: "Validated" },
-    features: [
-      "HTML and JSON parsing",
-      "Pagination handling",
-      "Data cleanup and validation",
-      "CSV/Excel export",
-    ]
-  },
-  {
-    id: "scraping-pipeline",
-    title: "Scraping Pipeline",
-    subtitle: "Cleanup & Storage",
-    description:
-      "Basic pipeline for retrying failed requests, cleaning duplicated records, and storing scraped data for later use.",
-    tech: ["Python AsyncIO", "Pandas", "MongoDB", "PostgreSQL"],
-    metrics: { retries: "Backoff", storage: "DB/Files", quality: "Cleaned" },
-    features: [
-      "Retry and cooldown rules",
-      "Duplicate removal",
-      "Schema normalization",
-      "Database or file storage",
-    ]
-  },
-];
-
-export const automationTools = [...platformAutomation, ...webScraping];
-
 
 export const personalInfo = {
   name: "NGUYEN",
-  role: "Fullstack Software Engineer",
+  role: "Frontend-focused Software Engineer",
   experience: "3+ Years",
-  specialization: "FastAPI (Python) & React/Next.js",
+  specialization: "React / Next.js / TypeScript",
   systemVersion: "NGUYEN-OS v3.2.1",
   status: "ONLINE",
   location: "Ho Chi Minh City, Vietnam",
   contact: {
-    phone: "0395162022",
     email: "vannguyen.tran.164@gmail.com",
     github: "github.com/nguyen-gb",
   },
