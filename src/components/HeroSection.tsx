@@ -65,10 +65,10 @@ function MatrixRain({ disabled }: { disabled: boolean }) {
 }
 
 const strengths = [
-  { label: "Primary", value: "REACT / NEXT.JS" },
-  { label: "Language", value: "TYPESCRIPT" },
-  { label: "Delivery", value: "RESPONSIVE UI" },
-  { label: "Support", value: "API INTEGRATION" },
+  { label: "Experience", value: personalInfo.experience },
+  { label: "Focus", value: "PRODUCT FRONTEND" },
+  { label: "Strength", value: "REAL-TIME UI" },
+  { label: "Location", value: "HO CHI MINH CITY" },
 ];
 
 export default function HeroSection() {
@@ -116,9 +116,9 @@ export default function HeroSection() {
           {personalInfo.role}
         </p>
         <p className="max-w-2xl mx-auto mt-5 text-sm md:text-base leading-7 text-cyber-text-dim">
-          I build responsive, polished product interfaces with React, Next.js,
-          and TypeScript, with enough backend experience to deliver complete
-          features from UI to API integration.
+          I build fast, responsive products and real-time AI experiences with
+          React, Next.js, and TypeScript, backed by practical Python and API
+          expertise.
         </p>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mt-9 mb-10">
@@ -148,21 +148,21 @@ export default function HeroSection() {
             whileTap={reduceMotion ? undefined : { scale: 0.97 }}
             className="w-full sm:w-auto px-8 py-3 bg-cyber-pink text-white font-['Orbitron'] text-xs tracking-[0.16em] uppercase cursor-pointer"
           >
-            View featured work
+            I&apos;m hiring
           </motion.button>
           <motion.a
-            href={`mailto:${personalInfo.contact.email}`}
+            href={`mailto:${personalInfo.contact.email}?subject=Project%20inquiry`}
             whileHover={reduceMotion ? undefined : { scale: 1.04 }}
             whileTap={reduceMotion ? undefined : { scale: 0.97 }}
             className="w-full sm:w-auto px-8 py-3 border border-cyber-pink/50 text-cyber-pink font-['Orbitron'] text-xs tracking-[0.16em] uppercase hover:bg-cyber-pink/10 transition-colors"
           >
-            Contact me
+            I need a product
           </motion.a>
           <a
             href="#terminal"
             className="w-full sm:w-auto px-6 py-3 text-cyber-text-dim text-xs tracking-[0.14em] uppercase hover:text-cyber-cyan transition-colors"
           >
-            Open terminal
+            Explore the system
           </a>
         </div>
       </motion.div>

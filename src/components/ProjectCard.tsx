@@ -28,12 +28,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       onMouseLeave={() => setIsHovered(false)}
       className="group relative"
     >
-      <div className="cyber-card rounded-lg overflow-hidden h-full flex flex-col">
+      <div className="cyber-card overflow-hidden h-full flex flex-col">
         {/* Image Container */}
         <div className="relative aspect-video overflow-hidden bg-cyber-dark">
           {/* Glowing border effect */}
           <motion.div
-            className="absolute inset-0 z-10 pointer-events-none rounded-t-lg"
+            className="absolute inset-0 z-10 pointer-events-none"
             animate={{
               boxShadow: isHovered
                 ? "inset 0 0 30px rgba(234,59,146,0.3), 0 0 15px rgba(234,59,146,0.2)"
@@ -116,7 +116,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   : "scanning border-cyber-pink/50 text-cyber-pink bg-cyber-pink/10"
               }`}
             >
-              {project.status === "live" ? "LIVE PREVIEW" : "SCANNING..."}
+              {project.status === "live" ? "LIVE PROJECT" : "SOURCE CODE"}
             </span>
           </div>
 
@@ -150,6 +150,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
           {(project.role || project.focus) && (
             <div className="mb-4 border-l border-cyber-cyan/40 pl-3">
+              {project.projectType && (
+                <p className="mb-1 text-[0.6rem] uppercase tracking-[0.14em] text-cyber-pink">
+                  {project.projectType}
+                </p>
+              )}
               {project.role && (
                 <p className="text-[0.65rem] uppercase tracking-[0.14em] text-cyber-cyan">
                   Role: {project.role}
@@ -169,7 +174,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="text-[0.6rem] px-2 py-0.5 bg-cyber-pink/5 border border-cyber-pink/20 text-cyber-pink/70 tracking-wider uppercase font-mono rounded-sm"
+                className="border border-cyber-cyan/30 bg-cyber-cyan/5 px-2 py-0.5 font-mono text-[0.6rem] uppercase tracking-wider text-cyber-cyan/80 transition-colors hover:border-cyber-cyan/60 hover:text-cyber-cyan"
               >
                 {t}
               </span>
@@ -200,7 +205,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-cyber-heading border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300 rounded-sm"
+                  className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-cyber-heading border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300"
                 >
                   <span className="w-1.5 h-1.5 bg-cyber-pink rounded-full" />
                   {link.label}
@@ -211,7 +216,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={primaryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-cyber-heading border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300 rounded-sm"
+                className="inline-flex items-center gap-1.5 text-[0.65rem] tracking-wider uppercase font-mono text-cyber-pink hover:text-cyber-heading border border-cyber-pink/30 hover:border-cyber-pink hover:bg-cyber-pink/10 px-3 py-1.5 transition-all duration-300"
               >
                 <span className="w-1.5 h-1.5 bg-cyber-pink rounded-full" />
                 VIEW LIVE

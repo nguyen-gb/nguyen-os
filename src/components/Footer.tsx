@@ -41,11 +41,11 @@ export default function Footer() {
             </h3>
             <div className="grid grid-cols-2 gap-1">
               {[
-                { id: "react", label: "React & Next.js" },
-                { id: "landing", label: "Landing Pages" },
-                { id: "wordpress", label: "WordPress" },
-                { id: "python", label: "Python & API" },
-                { id: "terminal", label: "Terminal" },
+                { id: "react", label: "Featured work" },
+                { id: "case-studies", label: "Case studies" },
+                { id: "capabilities", label: "Capabilities" },
+                { id: "landing", label: "Client work" },
+                { id: "contact", label: "Contact" },
               ].map((link) => (
                 <a
                   key={link.id}

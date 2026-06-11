@@ -240,7 +240,7 @@ export default function Terminal() {
         >
           <div className="flex items-center gap-3 mb-4">
             <span className="text-[0.65rem] tracking-[0.2em] text-cyber-pink font-mono uppercase border border-cyber-pink/30 px-2 py-0.5 bg-cyber-pink/5">
-              MODULE 05
+              OPTIONAL MODULE
             </span>
             <span className="text-[0.6rem] tracking-[0.3em] text-cyber-text-dim font-mono uppercase">
               ESTABLISHING UPLINK
@@ -262,7 +262,7 @@ export default function Terminal() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-cyber-dark border border-cyber-border rounded-lg overflow-hidden glow-pink"
+          className="bg-cyber-dark border border-cyber-border overflow-hidden glow-pink"
         >
           {/* Terminal header bar */}
           <div className="flex items-center gap-2 px-4 py-2.5 border-b border-cyber-border bg-cyber-surface/50">

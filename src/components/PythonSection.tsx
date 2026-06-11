@@ -36,7 +36,7 @@ function SystemCard({ system, index }: { system: PythonSystem; index: number }) 
       onMouseLeave={() => setIsHovered(false)}
       className="group relative"
     >
-      <div className="cyber-card rounded-lg overflow-hidden h-full">
+      <div className="cyber-card overflow-hidden h-full">
         {/* Top bar with icon and status */}
         <div className="relative h-40 bg-gradient-to-br from-cyber-dark via-cyber-surface to-cyber-surface-2 flex items-center justify-center overflow-hidden">
           {/* Grid pattern */}
@@ -180,7 +180,7 @@ function SystemCard({ system, index }: { system: PythonSystem; index: number }) 
             {system.tech.map((t) => (
               <span
                 key={t}
-                className="text-[0.6rem] px-2 py-0.5 bg-cyber-pink/5 border border-cyber-pink/20 text-cyber-pink/70 tracking-wider uppercase font-mono rounded-sm"
+                className="border border-cyber-cyan/30 bg-cyber-cyan/5 px-2 py-0.5 font-mono text-[0.6rem] uppercase tracking-wider text-cyber-cyan/80 transition-colors hover:border-cyber-cyan/60 hover:text-cyber-cyan"
               >
                 {t}
               </span>
@@ -196,7 +196,7 @@ export default function PythonSection() {
   return (
     <SectionWrapper
       id="python"
-      moduleIndex={4}
+      moduleIndex={6}
       moduleLabel="FULL-STACK SUPPORT"
       title="PYTHON & API"
       subtitle="Backend and AI integration experience that supports complete frontend product delivery."

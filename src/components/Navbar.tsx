@@ -8,11 +8,11 @@ import { personalInfo } from "@/data/projects";
 type Theme = "light" | "dark";
 
 const navLinks = [
-  { id: "react", label: "REACT", module: "01" },
-  { id: "landing", label: "LANDING", module: "02" },
-  { id: "wordpress", label: "WORDPRESS", module: "03" },
-  { id: "python", label: "PYTHON", module: "04" },
-  { id: "terminal", label: "TERMINAL", module: "05" },
+  { id: "react", label: "WORK", module: "01" },
+  { id: "case-studies", label: "CASES", module: "02" },
+  { id: "capabilities", label: "SKILLS", module: "03" },
+  { id: "landing", label: "CLIENTS", module: "04" },
+  { id: "contact", label: "CONTACT", module: "07" },
 ];
 
 export default function Navbar() {

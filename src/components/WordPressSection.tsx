@@ -6,10 +6,10 @@ export default function WordPressSection() {
   return (
     <SectionWrapper
       id="wordpress"
-      moduleIndex={3}
+      moduleIndex={5}
       moduleLabel="PRODUCTION WEB PLATFORMS"
       title="WORDPRESS"
-      subtitle="Production websites delivered in professional teams, with custom themes, commerce flows, and CMS integrations."
+      subtitle="Production WordPress websites supported through ongoing updates, issue resolution, content changes, and maintenance."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {wordpressProjects.map((project, i) => (

@@ -7,9 +7,9 @@ export default function ReactSection() {
     <SectionWrapper
       id="react"
       moduleIndex={1}
-      moduleLabel="FEATURED FRONTEND WORK"
-      title="REACT & NEXT.JS"
-      subtitle="Flagship product experiences built around responsive interfaces, real-time interaction, and maintainable component architecture."
+      moduleLabel="SELECTED PRODUCT WORK"
+      title="FEATURED WORK"
+      subtitle="The strongest examples of my frontend and full-feature delivery, selected for product depth, real-time interaction, and technical review."
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {reactProjects.map((project, i) => (

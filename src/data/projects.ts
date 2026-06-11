@@ -19,6 +19,12 @@ export interface PortfolioProject {
   role?: string;
   focus?: string[];
   icon?: string;
+  projectType?: "Personal product" | "Team project" | "Client work";
+  caseStudy?: {
+    challenge: string;
+    approach: string[];
+    outcome: string[];
+  };
 }
 
 export interface PythonSystem {
@@ -42,7 +48,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/monrei-sai-gon.jpg",
     url: "https://monrei-sai-gon.vn/",
     tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript"],
-    role: "Frontend implementation",
+    role: "Independent frontend delivery",
+    projectType: "Client work",
     focus: ["Responsive layout", "Visual storytelling", "Performance-minded UI"],
     status: "live",
   },
@@ -55,7 +62,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/lusso-saigon.jpg",
     url: "https://lussosaigonresidences.com/",
     tech: ["HTML5", "CSS3", "JavaScript", "SEO Optimization"],
-    role: "Frontend implementation",
+    role: "Independent frontend delivery",
+    projectType: "Client work",
     focus: ["Interactive content", "Lead-generation flow", "Responsive UI"],
     status: "live",
   },
@@ -68,7 +76,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/vinhomes-saigon-park.jpg",
     url: "https://vinhomes-saigon-park-page.com/",
     tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript"],
-    role: "Frontend implementation",
+    role: "Independent frontend delivery",
+    projectType: "Client work",
     focus: ["Content hierarchy", "Responsive sections", "Conversion-oriented UI"],
     status: "live",
   },
@@ -81,7 +90,8 @@ export const landingProjects: PortfolioProject[] = [
     image: "/images/projects/the-win-long-an.jpg",
     url: "https://thewinlongan.online/",
     tech: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "SEO"],
-    role: "Frontend implementation",
+    role: "Independent frontend delivery",
+    projectType: "Client work",
     focus: ["Reusable sections", "Mobile experience", "Asset optimization"],
     status: "live",
   },
@@ -93,12 +103,13 @@ export const wordpressProjects: PortfolioProject[] = [
     title: "Hoan My",
     subtitle: "Enterprise Healthcare Platform",
     description:
-      "Large-scale healthcare enterprise website with multi-location support, appointment systems, and CMS integration.",
+      "Ongoing updates and maintenance for a large healthcare website with multi-location content and appointment journeys.",
     image: "/images/projects/hoan-my.jpg",
     url: "https://hoanmy.com/",
-    tech: ["WordPress", "Custom PHP", "MySQL", "REST API"],
-    role: "Web platform development",
-    focus: ["CMS integration", "Multi-location content", "Responsive frontend"],
+    tech: ["WordPress", "PHP", "MySQL", "REST API"],
+    role: "Website updates and maintenance",
+    projectType: "Team project",
+    focus: ["Content updates", "Issue resolution", "Ongoing maintenance"],
     status: "live",
   },
   {
@@ -106,12 +117,13 @@ export const wordpressProjects: PortfolioProject[] = [
     title: "Kodo",
     subtitle: "Corporate Business Platform",
     description:
-      "Professional corporate website with custom theme development, advanced WooCommerce integration, and SEO optimization.",
+      "Production support and content updates for a corporate WordPress website with commerce and SEO requirements.",
     image: "/images/projects/kodo.jpg",
     url: "https://kodo.vn/",
-    tech: ["WordPress", "WooCommerce", "Custom Themes", "Linux"],
-    role: "WordPress development",
-    focus: ["Custom theme UI", "Commerce integration", "SEO foundations"],
+    tech: ["WordPress", "WooCommerce", "PHP", "Linux"],
+    role: "Website updates and maintenance",
+    projectType: "Client work",
+    focus: ["Content updates", "Issue resolution", "Ongoing maintenance"],
     status: "live",
   },
   {
@@ -119,12 +131,13 @@ export const wordpressProjects: PortfolioProject[] = [
     title: "Nhac Cu Minh Phung",
     subtitle: "E-Commerce Music Store",
     description:
-      "Feature-rich e-commerce platform for musical instruments with inventory management and payment gateways.",
+      "Updates and ongoing maintenance for a musical-instrument store with product catalog and commerce workflows.",
     image: "/images/projects/nhac-cu-minh-phung.jpg",
     url: "https://nhaccuminhphung.com/",
     tech: ["WordPress", "WooCommerce", "PHP", "MySQL"],
-    role: "E-commerce development",
-    focus: ["Product catalog UI", "Commerce flows", "Responsive storefront"],
+    role: "Website updates and maintenance",
+    projectType: "Client work",
+    focus: ["Catalog updates", "Issue resolution", "Ongoing maintenance"],
     status: "live",
   },
 ];
@@ -140,7 +153,8 @@ export const reactProjects: PortfolioProject[] = [
     url: "https://onlyspeak.online/",
     links: [{ label: "Live App", url: "https://onlyspeak.online/" }],
     tech: ["Next.js", "React", "FastAPI (Python)", "Audio APIs", "WebSockets"],
-    role: "Full-stack product development",
+    role: "Sole product developer",
+    projectType: "Personal product",
     focus: ["Interactive React UI", "Real-time audio flow", "API integration"],
     status: "live",
     features: [
@@ -149,13 +163,27 @@ export const reactProjects: PortfolioProject[] = [
       "Progress tracking",
       "Adaptive difficulty",
     ],
+    caseStudy: {
+      challenge:
+        "Create a speaking-practice product where the interface, audio capture, AI response, and feedback loop feel like one continuous conversation.",
+      approach: [
+        "Built the product interface with Next.js and React around short, focused practice flows.",
+        "Connected real-time audio and AI services through FastAPI, WebSockets, and browser audio APIs.",
+        "Designed clear loading, listening, speaking, and feedback states so users always understand what the system is doing.",
+      ],
+      outcome: [
+        "Independently delivered the live product from frontend experience through backend and AI integration.",
+        "Combined frontend product work with practical API and real-time audio integration.",
+        "Created a reusable foundation for progress tracking and adaptive practice features.",
+      ],
+    },
   },
   {
     id: "nhcinema",
     title: "NHCinema",
     subtitle: "Real-time Ticket Booking Platform",
     description:
-      "Full-stack movie booking ecosystem with real-time seat selection via WebSockets, spanning Web and Mobile platforms with admin dashboard.",
+      "Web, mobile, and admin frontend for a movie booking platform with real-time seat selection via WebSockets.",
     image: "/images/projects/nhcinema.jpg",
     links: [
       { label: "User Frontend", url: "https://github.com/nguyen-gb/NHCinema" },
@@ -166,15 +194,35 @@ export const reactProjects: PortfolioProject[] = [
       { label: "Mobile App", url: "https://github.com/nguyen-gb/cinema" },
     ],
     tech: ["React", "Next.js", "React Native", "WebSockets", "Redux", "JWT"],
-    role: "Cross-platform frontend development",
-    focus: ["Real-time seat UI", "Shared product flows", "State management"],
+    role: "Frontend developer for web, mobile, and admin",
+    projectType: "Team project",
+    focus: [
+      "Web frontend",
+      "Mobile app frontend",
+      "Admin dashboard frontend",
+    ],
     status: "scanning",
     features: [
       "Real-time seat booking",
       "WebSocket sync",
       "Cross-platform UI",
-      "Admin analytics",
+      "Customer and admin workflows",
     ],
+    caseStudy: {
+      challenge:
+        "Keep seat availability and booking interactions consistent across customer web, mobile, and administration experiences.",
+      approach: [
+        "Designed shared booking flows around real-time seat updates delivered through WebSockets.",
+        "Built customer-facing booking interfaces for the web and mobile application.",
+        "Built the administration dashboard for managing the cinema platform.",
+        "Used centralized state management for authentication, booking progress, and synchronized seat data across the frontend applications.",
+      ],
+      outcome: [
+        "Delivered the web, mobile, and admin frontend portions of a larger team project.",
+        "Demonstrated real-time UI, cross-platform frontend work, and state-management experience.",
+        "Published the frontend implementations as source code for technical review.",
+      ],
+    },
   },
 ];
 
@@ -243,8 +291,11 @@ export const personalInfo = {
   systemVersion: "NGUYEN-OS v3.2.1",
   status: "ONLINE",
   location: "Ho Chi Minh City, Vietnam",
+  summary:
+    "I turn product requirements into responsive interfaces and complete features, from interaction design and frontend architecture to API and real-time integration.",
   contact: {
     email: "vannguyen.tran.164@gmail.com",
     github: "github.com/nguyen-gb",
+    githubUrl: "https://github.com/nguyen-gb",
   },
 };

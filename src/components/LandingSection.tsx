@@ -6,10 +6,10 @@ export default function LandingSection() {
   return (
     <SectionWrapper
       id="landing"
-      moduleIndex={2}
-      moduleLabel="CONVERSION-FOCUSED UI"
-      title="LANDING PAGES"
-      subtitle="Responsive marketing experiences designed for clear storytelling, fast navigation, and strong conversion paths."
+      moduleIndex={4}
+      moduleLabel="CLIENT DELIVERY"
+      title="MARKETING EXPERIENCES"
+      subtitle="Landing pages delivered independently, from responsive implementation through production-ready interaction and presentation."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {landingProjects.map((project, i) => (

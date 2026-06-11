@@ -323,6 +323,14 @@ body::before {
   background: #ea3b92;
 }
 
+.case-label {
+  color: var(--cyber-cyan);
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 /* ── Grid Pattern Background ── */
 .grid-bg {
   background-image:

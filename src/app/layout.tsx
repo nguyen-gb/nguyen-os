@@ -34,21 +34,21 @@ const themeInitScript = `
 export const metadata: Metadata = {
   title: "NGUYEN-OS | Frontend Engineer Portfolio",
   description:
-    "Frontend-focused software engineer building responsive product experiences with React, Next.js, and TypeScript.",
+    "Frontend engineer building responsive products and real-time experiences with React, Next.js, TypeScript, Python, and APIs.",
   keywords:
     "frontend developer, frontend engineer, React, Next.js, TypeScript, UI development, portfolio",
   authors: [{ name: "Nguyen" }],
   openGraph: {
     title: "NGUYEN-OS | Frontend Engineer Portfolio",
     description:
-      "React, Next.js, and TypeScript work presented through the NGUYEN-OS command center.",
+      "Selected product work, engineering case studies, and client delivery presented through the NGUYEN-OS command center.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "NGUYEN-OS | Frontend Engineer Portfolio",
     description:
-      "Frontend-focused engineering work with React, Next.js, and TypeScript.",
+      "Frontend product work, real-time interfaces, and full-feature delivery with React, Next.js, and TypeScript.",
   },
   robots: {
     index: true,
